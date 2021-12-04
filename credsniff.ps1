@@ -11,7 +11,7 @@ $Body = @{
 }
 Invoke-RestMethod -Uri $hookUrl -Method 'post' -Body $Body
 
-# http://f1sk.xyz // http://jayy.xyz
+# http://f1sk.xyz // http://jayy.xyz 
 # <3
 $id=""
 $tmpID=""
